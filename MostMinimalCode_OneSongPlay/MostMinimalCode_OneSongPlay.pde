@@ -9,17 +9,40 @@ import ddf.minim.ugens.*;
 Minim minim; //creates object to access all functions
 AudioPlayer song1; //creates a playlist
 //
+PFont titleFont; 
+color black=#000000, purple=#2C08FF, resetWhite=255;
+float titleX, titleY, titleWidth, titleHeight;
+//
 void setup() 
 {
-  minim = new Minim(this); // Important to have an work//load from data directorry, loadFile should also load from project folder, like loadImage 
+  size(500, 400);//Landscape
+  //Be careful to include display orientation checker and display CANVAS checker
+  //
+  minim = new Minim(this); // Important to have an work//load from data directory, loadFile should also load from project folder, like loadImage 
   song1 = minim.loadFile("in-the-forest-2-21402.mp3"); //Important to have an work//able to pass absolute path, file name & extension, and URL
+  //
+  //Population
+  titleX =width*1/4;
+  titleY = height*0;
+  titleWidth = width*1/2; 
+  titleHeight = height*1/10 ;
 }//End setup
 //
 void draw() {
   if (song1.isLooping() && song1.loopCount()!=-1) println("There are", song1.loopCount(), "loops left.");
   if (song1.isLooping() && song1.loopCount()==-1) println("Looping Infinty");
   if (song1.isPlaying() && !song1.isLooping()) println("Play Once");
-  println("Song position", song1.position(), "Song Length", song1.length() );
+  println("Song position", song1.position(), "Song Length", song1.length() );//Amount of time left is a calculation
+  //
+  background(black);
+  rect(titleX, titleY, titleWidth, titleHeight);
+  fill(purple); //Ink 
+  textAlign(CENTER, CENTER);//Align X&Y, see Processing.org/Reference
+  //Values: [LEFT | CENTER| 
+  textFont(titleFont, 30);//Chnage size number until it fits 
+  text();
+  fill(resetWhite);
+  //
 }//End draw
 //
 void keyPressed() 
