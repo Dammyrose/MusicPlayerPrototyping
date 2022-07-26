@@ -13,7 +13,7 @@ PFont titleFont;
 color black=#000000, purple=#2C08FF, resetWhite=255;
 float titleX, titleY, titleWidth, titleHeight;
 //
-void setup() 
+void setup()
 {
   size(500, 400);//Landscape
   //Be careful to include display orientation checker and display CANVAS checker
@@ -26,6 +26,8 @@ void setup()
   titleY = height*0;
   titleWidth = width*1/2; 
   titleHeight = height*1/10 ;
+  //
+  titleFont = createFont("Harrington", 40);
 }//End setup
 //
 void draw() {
@@ -38,9 +40,9 @@ void draw() {
   rect(titleX, titleY, titleWidth, titleHeight);
   fill(purple); //Ink 
   textAlign(CENTER, CENTER);//Align X&Y, see Processing.org/Reference
-  //Values: [LEFT | CENTER| 
+  //Values: [LEFT | CENTER| RIGHT] & [TOP | CENTER | BOTTOM | BASEINE]
   textFont(titleFont, 30);//Chnage size number until it fits 
-  text();
+  text(metaData, titleX, titleY, titleWidth, titleHeight);
   fill(resetWhite);
   //
 }//End draw
