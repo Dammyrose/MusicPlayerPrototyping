@@ -8,6 +8,7 @@ import ddf.minim.ugens.*;
 //Global Variables
 Minim minim; //creates object to access all functions
 AudioPlayer song1; //creates a playlist
+AudioMetaData songMetaData1;
 //
 PFont titleFont; 
 color black=#000000, purple=#2C08FF, resetWhite=255;
@@ -18,8 +19,9 @@ void setup()
   size(500, 400);//Landscape
   //Be careful to include display orientation checker and display CANVAS checker
   //
-  minim = new Minim(this); // Important to have an work//load from data directory, loadFile should also load from project folder, like loadImage 
-  song1 = minim.loadFile("in-the-forest-2-21402.mp3"); //Important to have an work//able to pass absolute path, file name & extension, and URL
+  minim = new Minim(this); // Important to have to work//load from data directory, loadFile should also load from project folder, like loadImage 
+  song1 = minim.loadFile("in-the-forest-2-21402.mp3"); //Important to have to work//able to pass absolute path, file name & extension, and URL
+  songMetaData1 = song1.getMetaData();c
   //
   //Population
   titleX =width*1/4;
@@ -42,7 +44,7 @@ void draw() {
   textAlign(CENTER, CENTER);//Align X&Y, see Processing.org/Reference
   //Values: [LEFT | CENTER| RIGHT] & [TOP | CENTER | BOTTOM | BASEINE]
   textFont(titleFont, 30);//Chnage size number until it fits 
-  text(metaData, titleX, titleY, titleWidth, titleHeight);
+  text(songMetaData1, titleX, titleY, titleWidth, titleHeight);
   fill(resetWhite);
   //
 }//End draw
