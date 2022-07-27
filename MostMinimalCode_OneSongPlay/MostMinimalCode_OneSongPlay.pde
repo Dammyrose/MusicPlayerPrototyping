@@ -21,7 +21,7 @@ void setup()
   //
   minim = new Minim(this); // Important to have to work//load from data directory, loadFile should also load from project folder, like loadImage 
   song1 = minim.loadFile("in-the-forest-2-21402.mp3"); //Important to have to work//able to pass absolute path, file name & extension, and URL
-  songMetaData1 = song1.getMetaData();c
+  songMetaData1 = song1.getMetaData();
   //
   //Population
   titleX =width*1/4;
@@ -29,7 +29,7 @@ void setup()
   titleWidth = width*1/2; 
   titleHeight = height*1/10 ;
   //
-  titleFont = createFont("Harrington", 40);
+  titleFont = createFont("Harrington", 50);
 }//End setup
 //
 void draw() {
@@ -43,8 +43,8 @@ void draw() {
   fill(purple); //Ink 
   textAlign(CENTER, CENTER);//Align X&Y, see Processing.org/Reference
   //Values: [LEFT | CENTER| RIGHT] & [TOP | CENTER | BOTTOM | BASEINE]
-  textFont(titleFont, 30);//Chnage size number until it fits 
-  text(songMetaData1, titleX, titleY, titleWidth, titleHeight);
+  textFont(titleFont, 30);//Change size number until it fits 
+  text( songMetaData1.title(), titleX, titleY, titleWidth, titleHeight);
   fill(resetWhite);
   //
 }//End draw
